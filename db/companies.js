@@ -1,10 +1,13 @@
 const Pool = require('pg').Pool;
+const config = require('../app_config.json');
+
+
 const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'api_db',
-    password: '***********',
-    port: 5432,
+    user: config.dbConfig.user,
+    host: config.dbConfig.host,
+    database: config.dbConfig.database,
+    password: config.dbConfig.password,
+    port: config.dbConfig.port,
 });
 
 const getCompanies = (request, response) => {
